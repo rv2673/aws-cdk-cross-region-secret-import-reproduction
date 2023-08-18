@@ -3,6 +3,35 @@
 This repository contain minimal setup to reproduce for
 aws-cdk issue with cross-region policy reference of imported secret
 
+## Issue
+The following policy statement is created (through grantRead)
+```
+"Statement": [
+      {
+       "Action": [
+        "secretsmanager:DescribeSecret",
+        "secretsmanager:GetSecretValue"
+       ],
+       "Effect": "Allow",
+       "Resource": "arn:aws:secretsmanager:eu-central-1:123456789:secret:secret-name-suffix-??????"
+      }
+]
+```
+
+While this the policy that is expected and works(and was generated before <2.89):
+```
+"Statement": [
+      {
+       "Action": [
+        "secretsmanager:DescribeSecret",
+        "secretsmanager:GetSecretValue"
+       ],
+       "Effect": "Allow",
+       "Resource": "arn:aws:secretsmanager:eu-central-1:123456789:secret:secret-name-suffix"
+      }
+]
+```
+
 ## Useful commands
 
 * `npm run build`   compile typescript to js

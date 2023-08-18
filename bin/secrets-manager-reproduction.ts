@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import * as cdk from 'aws-cdk-lib';
 
-const SECRET_COMPLETE_ARN = 'arn:aws:secretsmanager:eu-central-1:123456789:secret:secret-name-suffix-abcfgh'
+const SECRET_COMPLETE_ARN = 'arn:aws:secretsmanager:eu-central-1:123456789:secret:secret-name-suffix'
 
 const app = new cdk.App();
 
